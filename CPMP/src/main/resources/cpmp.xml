@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver xmlns="https://www.optaplanner.org/xsd/solver" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.optaplanner.org/xsd/solver https://www.optaplanner.org/xsd/solver/solver.xsd">
+
+    <!--General configuration-->
+    <solutionClass>domain.CPMPSolution</solutionClass>
+    <entityClass>domain.CPMPVertex</entityClass>
+    <entityClass>domain.CPMPMedian</entityClass>
+    <scoreDirectorFactory>
+        <constraintProviderClass>score.CPMPConstraintProvider</constraintProviderClass>
+    </scoreDirectorFactory>
+
+    <termination>
+        <secondsSpentLimit>30</secondsSpentLimit>
+    </termination>
+
+    <!--Configuration of constructive heuristic-->
+    <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
+    </constructionHeuristic>
+
+<!--    Configuration of metaheuristic-->
+<!--    <localSearch>-->
+<!--        <localSearchType>TABU_SEARCH</localSearchType>-->
+<!--&lt;!&ndash;        <acceptor>&ndash;&gt;-->
+<!--&lt;!&ndash;            <entityTabuRatio>0.02</entityTabuRatio>&ndash;&gt;-->
+<!--&lt;!&ndash;        </acceptor>&ndash;&gt;-->
+<!--&lt;!&ndash;        <forager>&ndash;&gt;-->
+<!--&lt;!&ndash;            <acceptedCountLimit>1000</acceptedCountLimit>&ndash;&gt;-->
+<!--&lt;!&ndash;        </forager>&ndash;&gt;-->
+<!--    </localSearch>-->
+</solver>

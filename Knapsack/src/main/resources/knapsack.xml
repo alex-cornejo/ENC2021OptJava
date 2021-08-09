@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver xmlns="https://www.optaplanner.org/xsd/solver" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.optaplanner.org/xsd/solver https://www.optaplanner.org/xsd/solver/solver.xsd">
+
+    <solutionClass>domain.KnapsackSolution</solutionClass>
+    <entityClass>domain.Box</entityClass>
+
+    <scoreDirectorFactory>
+        <constraintProviderClass>score.KnapsackConstraintProvider</constraintProviderClass>
+    </scoreDirectorFactory>
+
+    <termination>
+        <secondsSpentLimit>10</secondsSpentLimit>
+    </termination>
+    <exhaustiveSearch>
+        <exhaustiveSearchType>BRUTE_FORCE</exhaustiveSearchType>
+<!--        <exhaustiveSearchType>BRANCH_AND_BOUND</exhaustiveSearchType>-->
+    </exhaustiveSearch>
+
+</solver>
