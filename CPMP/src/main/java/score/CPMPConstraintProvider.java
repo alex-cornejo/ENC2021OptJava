@@ -10,7 +10,7 @@ import org.optaplanner.core.api.score.stream.ConstraintProvider;
 public class CPMPConstraintProvider implements ConstraintProvider {
 
     @Override
-    public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
+    public Constraint[] defineConstraints(ConstraintFactory factory) {
         return new Constraint[]{
                 // call constraint methods here
 
@@ -18,13 +18,12 @@ public class CPMPConstraintProvider implements ConstraintProvider {
     }
 
     private Constraint maxCapacity(ConstraintFactory factory) {
-        return factory.from(CPMPMedian.class)
-                .filter((median) -> median.getVertices().size() > median.getQ())
-                .penalize("max capacity",
-                        HardSoftScore.ONE_HARD, (median) -> median.getVertices().size() - median.getQ());
+        // penalize hard here
+        // penalize if the capacity of a median is exceeded
+        return ...
     }
 
-    private Constraint minDistance(ConstraintFactory constraintFactory) {
+    private Constraint minDistance(ConstraintFactory factory) {
         // penalize soft here
         // penalize the distance from each vertex to its median
         return ...
